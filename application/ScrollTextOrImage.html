@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- http://www.dynamicdrive.com/dynamicindex2/crawler/ -->
+
+<script type="text/javascript" src="scripts/crawler.js"></script>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="marquee" id="mycrawler">Those confounded friars dully
+		buzz that faltering jay. An appraising tongue acutely causes our
+		courageous hogs. Their fitting submarines deftly break your approving
+		improvisations. Her downcast taxonomies actually box up those
+		disgusted turtles.</div>
+
+	<input type="button"
+		onclick="marqueeInit.ar[0].stopMarquee = !marqueeInit.ar[0].stopMarquee;"
+		value="Pause/Resume">
+	<br>
+	<br>
+	<br>
+	<br>
+	<script type="text/javascript">
+		marqueeInit({
+			uniqueid : 'mycrawler',
+			style : {
+				'padding' : '5px',
+				'width' : '450px',
+				'background' : 'lightyellow',
+				'border' : '1px solid #CC3300'
+			},
+			inc : 5, //speed - pixel increment for each iteration of this marquee's movement
+			mouse : 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+			moveatleast : 1,
+			neutral : 150,
+			persist : true,
+			savedirection : true
+		});
+	</script>
+
+
+
+	<div class="marquee" id="mycrawler2">
+		<img
+			src="http://www.dynamicdrive.com/dynamicindex2/crawler/bonsai.jpg" />
+		<img
+			src="http://www.dynamicdrive.com/dynamicindex2/crawler/water.jpg" />
+		<img
+			src="http://www.dynamicdrive.com/dynamicindex2/crawler/coco.jpg" />			
+		<img
+			src="http://www.dynamicdrive.com/dynamicindex2/crawler/beach.jpg" />
+	</div>
+
+	<script type="text/javascript">
+		marqueeInit({
+			uniqueid : 'mycrawler2',
+			style : {
+				'padding' : '2px',
+				'width' : '600px',
+				'height' : '180px'
+			},
+			inc : 5, //speed - pixel increment for each iteration of this marquee's movement
+			mouse : 'cursor driven', //mouseover behavior ('pause' 'cursor driven' or false)
+			moveatleast : 1,
+			neutral : 150,
+			savedirection : true,
+			random : true
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+http://115.127.24.183/PNCloudService/RegistrationService.svc/register/kabir21/kabir21/WP/01724951555/01711844137?format=json&devregid=AQG__LL1KQx4R5Ag1pbl_rMVAgAAAAADZQEAAAQUZm52OkJCMjg1QTg1QkZDMkUxREQFBkVVTk8wMQ&deviceid=x-G9rWfGBVG3-gTYDkb2pnR3R8I=
+
+http://115.127.24.183/lgarda/Service/SysUser/User.svc/get_sys_user_login/kabir21/123456/%28null%29/10.55.47.107/939A2EDE-51AA-45F3-AB7F-A6FD6FEEF4A4/2?format=json
+
+
+[11/16/2014 3:56:58 PM] Md. Amran Hasan ???: thnx
+[11/16/2014 4:38:20 PM] Md. Amran Hasan ???: http://115.127.24.183/lgarda/Service/SysUser/User.svc/get_sys_user_login/2/.......... ekhane device id ta parameter hishabe pathaite hobe. asad vai sugesst korse. and apnake janaite bolse. r iphone and android eou jate parameter hishabe pathano jai sheivabe oder change kore nite hobe bolse...
+[11/16/2014 4:41:09 PM] Hasan Shahjahan: http://localhost/lgarda/Service/SysUser/User.svc/get_sys_user_login/{PUSER_ID}/{PPASSWORD}/{PSESSION_ID}/{PIP_ADDRESS}/{PDEVICE_ID}/{PAPPLICATION_ID}
+[11/16/2014 4:41:38 PM] Md. Amran Hasan ???: http://115.127.24.183/lgarda/Service/SysUser/User.svc/get_sys_user_login/kabir21/123456/%28null%29/10.55.47.107/939A2EDE-51AA-45F3-AB7F-A6FD6FEEF4A4/2?format=json eta dile login hoy
+[11/16/2014 4:41:47 PM] Hasan Shahjahan: this is ur url....... and device id mmust go by parameter
+[11/16/2014 4:42:41 PM] Hasan Shahjahan: Login korben ....uer id and password diye r r baki gulo apni apnar app theke manage korben
+[11/16/2014 4:45:02 PM] Md. Amran Hasan ???: can ur service handle "/" ?
+[11/16/2014 4:46:53 PM] Md. Amran Hasan ???: because my device id is x/G9rWfGBVG3/gTYDkb2pnR3R8I=
+[11/16/2014 4:47:26 PM] Md. Amran Hasan ???: 939A2EDE-51AA-45F3-AB7F-A6FD6FEEF4A4 this is the device id of iphone ...
+[11/16/2014 4:49:04 PM] Hasan Shahjahan: try it
+[11/16/2014 4:50:12 PM] Hasan Shahjahan: u do not then handle ur site ......may not ........disscus babul vai ....he already handeled by app site ........
+[11/16/2014 4:50:13 PM] Md. Amran Hasan ???: if i send "x/G9rWfGBVG3/gTYDkb2pnR3R8I=" as u described, it may not work properly...
+[11/16/2014 4:50:27 PM] Hasan Shahjahan: my parameter is string
+[11/16/2014 4:50:36 PM] Hasan Shahjahan: so......all about string
+[11/16/2014 4:51:01 PM] Hasan Shahjahan: witin double coutation
+[11/16/2014 4:57:23 PM] Md. Amran Hasan ???: arre vai, mvc route,parametering kore / chinho diya... so amar parameter er moddhe / thakle apnar mvc service etake alda alda paremeter mone kore... accha dekhi ki kora jay... kotha boli babul vai er sathe
+
+
+
+AIzaSyDeyNh2LM5WepJs89o5jzgHBdLJpakiDKs
+10.48.99.195
+192.168.20.135
+115.127.24.184
+115.127.24.183
+
