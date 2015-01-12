@@ -5,7 +5,7 @@
 <body>
 	
 	<?php
-	include_once 'Functions.php';
+	include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
 	
 	$parameterList = array (
 			"name",

@@ -70,7 +70,7 @@ function PrintAsJsonWithTableName($resultSet, $db_tbl_name) {
 	
 	while ( $row = mysql_fetch_assoc ( $resultSet ) ) {
 		$dataArray [] = array (
-				substr($db_tbl_name, 0, -1) => $row 
+				substr($db_tbl_name, 0, -1) => $row
 		);
 	}
 	
@@ -94,6 +94,14 @@ function PrintAsJsonWithTableName2($resultSet, $db_tbl_name) {
 	echo json_encode ( array (
 			substr($db_tbl_name, 0, -1).'list' => $dataArray
 	) );
+}
+function PrintAsJsonSuccess() {	
+	header ( 'Content-type: application/json' );
+	echo json_encode ("success");
+}
+function PrintAsJsonFailed() {
+	header ( 'Content-type: application/json' );
+	echo json_encode ("failed");
 }
 function PrintToHTML($resultSet) {
 	$fields_num = mysql_num_fields ( $resultSet );
