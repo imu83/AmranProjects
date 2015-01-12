@@ -2,7 +2,9 @@
 <body>
 
 <?php
-include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+
+//include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+include_once '../Utility/Functions.php';
 
 $db_tbl_name = 'cars';
 

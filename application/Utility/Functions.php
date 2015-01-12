@@ -97,11 +97,11 @@ function PrintAsJsonWithTableName2($resultSet, $db_tbl_name) {
 }
 function PrintAsJsonSuccess() {	
 	header ( 'Content-type: application/json' );
-	echo json_encode ("success");
+	echo json_encode (array("action"=>"Success"));
 }
 function PrintAsJsonFailed() {
 	header ( 'Content-type: application/json' );
-	echo json_encode ("failed");
+	echo json_encode (array("action"=>"Failed"));
 }
 function PrintToHTML($resultSet) {
 	$fields_num = mysql_num_fields ( $resultSet );

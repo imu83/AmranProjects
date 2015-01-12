@@ -4,7 +4,9 @@
 </head>
 <body>
 <?php
-include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+
+//include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+include_once '../Utility/Functions.php';
 
 SetupConnectionToDB ();
 

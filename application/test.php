@@ -1,5 +1,8 @@
 <?php
-include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+
+//include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+include_once '../Utility/Functions.php';
+
 class MyClass {
 	public $prop1 = "I'm a class property!";
 	public function __construct() {
