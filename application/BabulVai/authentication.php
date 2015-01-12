@@ -24,10 +24,10 @@ if (isset ( $_POST ['userID'] )) {
 			mysql_free_result ( $resultSet );
 			
 			/* Redirect browser */
-			header ( "Location: Authorized.html" );
+			header ( "Location: Authorized.php?uid={$id}" );
 			exit ();
 		} else {
-			header ( "Location: UnAuthorized.html" );
+			header ( "Location: UnAuthorized.php" );
 			exit ();
 		}
 	} else {
