@@ -1,16 +1,13 @@
 <?php
-
-// include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
 include_once '../Utility/Functions.php';
+
 $parameterList = array (
 		"uid" 
 );
 
-list ( $validList, $invalidList ) = ValidateParamaters ( $parameterList );
+$validList = ValidateParamaters ( $parameterList );
 
-if (sizeof ( $invalidList ) > 0) {
-	echo $invalidList [0];
-} else {
+if (sizeof ( $validList ) == sizeof ( $parameterList )) {
 	
 	SetupConnectionToDB ();
 	$db_tbl_name = 'profiles';

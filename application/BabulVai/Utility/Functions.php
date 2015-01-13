@@ -20,7 +20,23 @@ function ValidateParamaters($parameterList) {
 			array_push ( $invalidList, $parameterValue );
 		}
 	}
-	return array($validList,$invalidList);
+	
+	if (sizeof ( $invalidList ) > 0) {
+		// echo $invalidList [0];
+		// print_r( $invalidList);
+		// echo '<pre>'; print_r($invalidList); echo '</pre>';
+		/*foreach ( $invalidList as $aItem ) {
+			echo $aItem, '<br>';
+		}*/
+		$count=0;
+		//echo "<table border = 1>";
+		echo "<table border=1 align=\"center\" style=\"margin-top: 0%; width: 25%; border-color: maroon; font-family: monospace;\">";
+		foreach ( $invalidList as $aItem ) {			
+			echo "<tr><td>". $count += 1 ,".</td><td> {$aItem} </td></tr>";
+		}
+		echo "</table>";
+	}		
+	return $validList;	
 }
 function SetupConnectionToDB() {
 	$db_host = 'localhost';
@@ -96,21 +112,22 @@ function PrintAsJsonWithTableName2($resultSet, $db_tbl_name) {
 	) );
 }
 function PrintAsJsonWithTableNameSingleObject($resultSet, $db_tbl_name) {
-	$dataArray = array ();
-	
 	$aRow = null;
 
 	while ( $row = mysql_fetch_assoc ( $resultSet ) ) {
 		$aRow = $row;		
+	}	
+
+	if ($aRow==null) {
+		PrintAsJsonFailedWithMessage("not found !");
 	}
-
-	header ( 'Content-type: application/json' );
-
-	echo json_encode ( array (
-			'action'=>"Success",
-			substr($db_tbl_name, 0, -1) => $aRow
-			
-	) );
+	else {
+		header ( 'Content-type: application/json' );
+		echo json_encode ( array (
+				'action'=>"Success",
+				substr($db_tbl_name, 0, -1) => $aRow
+		) );
+	}
 }
 function PrintAsJsonSuccess() {	
 	header ( 'Content-type: application/json' );

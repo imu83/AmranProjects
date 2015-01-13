@@ -1,6 +1,4 @@
 <?php
-
-// include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
 include_once 'Utility/Functions.php';
 
 $parameterList = array (
@@ -11,12 +9,9 @@ $parameterList = array (
 		"uemail" 
 );
 
-list ( $validList, $invalidList ) = ValidateParamaters ( $parameterList );
+$validList = ValidateParamaters ( $parameterList );
 
-if (sizeof ( $invalidList ) > 0) {
-	echo $invalidList [0];
-} else {
-	
+if (sizeof ( $validList ) == sizeof ( $parameterList )) {
 	SetupConnectionToDB ();
 	$db_tbl_name = 'profiles';
 	
@@ -25,6 +20,7 @@ if (sizeof ( $invalidList ) > 0) {
 	userMobile = '{$validList [2]}', 
 	userAddress = '{$validList [3]}',
 	userEmail = '{$validList [4]}'
+	
 	where userID = '{$validList [0]}'";
 	
 	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
@@ -32,7 +28,7 @@ if (sizeof ( $invalidList ) > 0) {
 	$myQuery = "SELECT * FROM {$db_tbl_name} where userID = '{$validList [0]}'";
 	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
-	PrintAsJson ( $resultSet );
+	PrintAsJsonWithTableNameSingleObject ( $resultSet, $db_tbl_name );
 	
 	mysql_free_result ( $resultSet );
 }

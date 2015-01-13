@@ -1,16 +1,13 @@
 <?php
-
 include_once 'Utility/Functions.php';
 
 $parameterList = array (
 		"uid" 
 );
 
-list ( $validList, $invalidList ) = ValidateParamaters ( $parameterList );
+$validList = ValidateParamaters ( $parameterList );
 
-if (sizeof ( $invalidList ) > 0) {
-	echo $invalidList [0];
-} else {
+if (sizeof ( $validList ) == sizeof ( $parameterList )) {
 	
 	SetupConnectionToDB ();
 	$db_tbl_name = 'profiles';
@@ -18,15 +15,13 @@ if (sizeof ( $invalidList ) > 0) {
 	$myQuery = "select * from {$db_tbl_name}  
 	where userID = '{$validList [0]}'";
 	
-	$executionStatus = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
+	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
-	if ( $executionStatus ) {
-		PrintAsJson ($executionStatus);
-	}
-	else {
+	if ($resultSet) {
+		PrintAsJsonWithTableNameSingleObject ( $resultSet, $db_tbl_name );
+	} else {
 		PrintAsJsonFailed ();
 	}
-	
 }
 
 ?>

@@ -5,43 +5,45 @@ include_once 'Utility/Functions.php';
 
 $parameterList = array (
 		"uid",
-		"uname",
-		"umobile",
+		"upass",
+		"ufullname",		
 		"uaddress",
+		"ucity",
+		"ucountry",
+		"ucell",		
 		"uemail" 
 );
 
-list ( $validList, $invalidList ) = ValidateParamaters ( $parameterList );
+$validList = ValidateParamaters ( $parameterList );
 
-if (sizeof ( $invalidList ) > 0) {
-	//echo $invalidList [0];
-	//print_r( $invalidList);
-	//echo '<pre>'; print_r($invalidList); echo '</pre>';
-	foreach($invalidList as $aItem) {
-		echo $aItem, '<br>';
-	}
-	
-} else {
-	
+if (sizeof ( $validList ) == sizeof ( $parameterList )) {
 	SetupConnectionToDB ();
 	$db_tbl_name = 'profiles';
 	
-	$myQuery = "insert into {$db_tbl_name}  
-	(userID, userName, userMobile, userAddress, userEmail)
+	$myQuery = "insert into {$db_tbl_name}
+	(userID, userPassword, userFullName, userAddress, userCity, userCountry, userCell, userEmail)
 	VALUES (
 	'{$validList [0]}', '{$validList [1]}',
-	'{$validList [2]}', '{$validList [3]}', 
-	'{$validList [4]}')";
+	'{$validList [2]}', '{$validList [3]}',
+	'{$validList [4]}', '{$validList [5]}',
+	'{$validList [6]}', '{$validList [7]}')";
 	
 	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
+	
+	if ($resultSet) {
+		$myQuery = "insert into users
+		(userID, userPassword)
+		VALUES (
+		'{$validList [0]}', '{$validList [1]}')";
+		
+		$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
+	}
 	
 	$myQuery = "SELECT * FROM {$db_tbl_name} where userID = '{$validList [0]}'";
 	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
 	PrintAsJsonWithTableNameSingleObject ( $resultSet, $db_tbl_name );
-	// PrintToHTML ( $resultSet );
 	
 	mysql_free_result ( $resultSet );
 }
-
 ?>
