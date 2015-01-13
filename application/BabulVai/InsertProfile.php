@@ -14,7 +14,13 @@ $parameterList = array (
 list ( $validList, $invalidList ) = ValidateParamaters ( $parameterList );
 
 if (sizeof ( $invalidList ) > 0) {
-	echo $invalidList [0];
+	//echo $invalidList [0];
+	//print_r( $invalidList);
+	//echo '<pre>'; print_r($invalidList); echo '</pre>';
+	foreach($invalidList as $aItem) {
+		echo $aItem, '<br>';
+	}
+	
 } else {
 	
 	SetupConnectionToDB ();
