@@ -1,7 +1,7 @@
 <?php
 
-//include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
-include_once '../Utility/Functions.php';
+// include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+include_once 'Utility/Functions.php';
 
 SetupConnectionToDB ();
 
@@ -20,7 +20,7 @@ if (isset ( $_POST ['userID'] )) {
 		$myQuery = "SELECT * FROM {$db_tbl_name} where userID = '{$id}' and password = '{$password}'";
 		$resultSet = mysql_query ( $myQuery ) or die ( $myQuery . "<br/><br/>" . mysql_error () );
 		
-		if (mysql_num_rows ( $resultSet ) > 0) {			
+		if (mysql_num_rows ( $resultSet ) > 0) {
 			mysql_free_result ( $resultSet );
 			
 			/* Redirect browser */

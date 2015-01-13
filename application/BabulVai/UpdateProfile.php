@@ -1,7 +1,7 @@
 <?php
 
-//include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
-include_once '../Utility/Functions.php';
+// include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
+include_once 'Utility/Functions.php';
 
 $parameterList = array (
 		"uid",
@@ -27,10 +27,10 @@ if (sizeof ( $invalidList ) > 0) {
 	userEmail = '{$validList [4]}'
 	where userID = '{$validList [0]}'";
 	
-	$resultSet = mysql_query ( $myQuery ) or die ( $myQuery . "<br/><br/>" . mysql_error () );
+	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
 	$myQuery = "SELECT * FROM {$db_tbl_name} where userID = '{$validList [0]}'";
-	$resultSet = mysql_query ( $myQuery ) or die ( $myQuery . "<br/><br/>" . mysql_error () );
+	$resultSet = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
 	PrintAsJson ( $resultSet );
 	

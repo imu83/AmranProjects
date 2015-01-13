@@ -1,6 +1,6 @@
 <?php
 
-include_once '../Utility/Functions.php';
+include_once 'Utility/Functions.php';
 
 $parameterList = array (
 		"uid" 
@@ -18,7 +18,7 @@ if (sizeof ( $invalidList ) > 0) {
 	$myQuery = "select * from {$db_tbl_name}  
 	where userID = '{$validList [0]}'";
 	
-	$executionStatus = mysql_query ( $myQuery ) or die ( $myQuery . "<br/><br/>" . mysql_error () );
+	$executionStatus = mysql_query ( $myQuery ) or die ( PrintAsJsonFailedWithMessage ( mysql_error () ) );
 	
 	if ( $executionStatus ) {
 		PrintAsJson ($executionStatus);

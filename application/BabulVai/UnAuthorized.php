@@ -1,6 +1,5 @@
 <?php
-
-include_once '../Utility/Functions.php';
+include_once 'Utility/Functions.php';
 
 PrintAsJsonFailed ();
 
