@@ -1,34 +1,33 @@
 <?php
-
-// include_once $_SERVER ['DOCUMENT_ROOT'] . '/AmranProjects/application/Utility/Functions.php';
 include_once 'Utility/Functions.php';
 
 SetupConnectionToDB ();
 
 $db_tbl_name = 'users';
 
-if (isset ( $_POST ['userID'] )) {
+if (isset ( $_REQUEST ['uid'] )) {
 	
-	if (! empty ( $_POST ['userID'] )) {
+	if (! empty ( $_REQUEST ['uid'] )) {
 		
-		$id = $_POST ['userID'];
-		$password = $_POST ['password'];
+		$id = $_REQUEST ['uid'];
+		$password = $_REQUEST ['upass'];
 		
-		$sql = "select from {$db_tbl_name} 
-	 	where userID = '$id' and password = '$password'";
+		$myQuery = "SELECT * FROM {$db_tbl_name} 
+		where userID = '{$id}' and userPassword = '{$password}'";
 		
-		$myQuery = "SELECT * FROM {$db_tbl_name} where userID = '{$id}' and password = '{$password}'";
 		$resultSet = mysql_query ( $myQuery ) or die ( $myQuery . "<br/><br/>" . mysql_error () );
 		
 		if (mysql_num_rows ( $resultSet ) > 0) {
 			mysql_free_result ( $resultSet );
 			
 			/* Redirect browser */
-			header ( "Location: Authorized.php?uid={$id}" );
-			exit ();
+			// header ( "Location: Authorized.php?uid={$id}" );
+			// exit ();
+			echo "autho";
 		} else {
-			header ( "Location: UnAuthorized.php" );
-			exit ();
+			// header ( "Location: UnAuthorized.php" );
+			// exit ();
+			echo "un-autho";
 		}
 	} else {
 		echo "user id was empty";

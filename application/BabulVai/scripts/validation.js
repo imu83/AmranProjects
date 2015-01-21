@@ -1,19 +1,15 @@
-function IsValid()
-{
-	var isvalid = false;	
+function IsValid() {
+	var isvalid = false;
 
-	var userID =document.getElementById('userID');
-	var password =document.getElementById('password');
-		
-	if(userID.value!='')
-	{		
+	var userID = document.getElementById('userID');
+	var password = document.getElementById('userPassword');
+
+	if (userID.value != '') {
 		isvalid = true;
-		}
-	if(password.value!='')
-	{
+	}
+	if (password.value != '') {
 		isvalid = true;
-		}
-	else {		
+	} else {
 		alert('please fill the mandatory');
 		isvalid = false;
 	}

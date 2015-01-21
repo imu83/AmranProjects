@@ -9,6 +9,15 @@ if (move_uploaded_file ( $_FILES ['file'] ['tmp_name'], $target_path )) {
 } else {
 	echo "There was an error uploading the file, please try again!";
 }
+
+
+
+
+
+
+
+
+
 function ShowFileData($param) {
 	$myfile = fopen ( $param, "r" ) or die ( "Unable to open file!" );
 	

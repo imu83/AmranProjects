@@ -77,6 +77,45 @@ function ValidateParamatersPost($parameterList) {
 	}
 	return $validList;
 }
+function ValidateParamatersRequest($parameterList) {
+	$validList = array ();
+	$invalidList = array ();
+
+	foreach ( $parameterList as $parameterName ) {
+		if (isset ( $_REQUEST [$parameterName] )) {
+
+			$parameterValue = $_REQUEST [$parameterName];
+
+			if (trim ( $parameterValue != "" )) {
+				array_push ( $validList, $parameterValue );
+			}
+			else {
+				$parameterValue = "(any value in '{$parameterName}' parameter was not supplied)";
+				array_push ( $invalidList, $parameterValue );
+			}
+		} else {
+			$parameterValue = "('{$parameterName}' was not supplied as parameter)";
+			array_push ( $invalidList, $parameterValue );
+		}
+	}
+
+	if (sizeof ( $invalidList ) > 0) {
+		// echo $invalidList [0];
+		// print_r( $invalidList);
+		// echo '<pre>'; print_r($invalidList); echo '</pre>';
+		/*foreach ( $invalidList as $aItem ) {
+			echo $aItem, '<br>';
+			}*/
+		$count=0;
+		//echo "<table border = 1>";
+		echo "<table border=1 align=\"center\" style=\"margin-top: 0%; width: 25%; border-color: maroon; font-family: monospace;\">";
+		foreach ( $invalidList as $aItem ) {
+			echo "<tr><td>". $count += 1 ,".</td><td> {$aItem} </td></tr>";
+		}
+		echo "</table>";
+	}
+	return $validList;
+}
 function SetupConnectionToDB() {
 	$db_host = 'localhost';
 	$db_user = 'amran';
